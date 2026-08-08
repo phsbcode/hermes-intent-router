@@ -120,10 +120,24 @@ with `intent: null`, and Hermes decides what to do.
 
 **Final measured threshold and routing behaviour (held-out evaluation):**
 
+**Metric definitions (reconciled — do not treat these as interchangeable):**
+
+* `raw_intent_classifier_macro_f1` — the underlying MLP's macro-F1 on all
+  600 held-out in-domain messages, **ignoring routing/escalation**. This is
+  the metric comparable to the original benchmark's ~0.995 figure.
+* `pipeline_macro_f1_with_abstentions` — end-to-end pipeline macro-F1 where
+  each ESCALATE counts as an abstention/error for its true intent class, and
+  the macro average includes one `ESCALATED` pseudo-class (whose F1 is 0
+  because no ground-truth label is ever `ESCALATED`). This is the number
+  reported as 0.8998 / 0.8871 in the pipeline tables. Do NOT call it
+  "intent macro-F1".
+* `routed_messages_accuracy` — accuracy only among messages actually routed.
+* `coverage` — percentage of messages routed automatically.
+
 | metric | result |
 |---|---|
 | Final confidence threshold | 0.3621 |
-| In-distribution test macro-F1 | 0.9950 |
+| raw_intent_classifier_macro_f1 | 0.9950 |
 | In-distribution routing coverage | 98.33% auto-routed |
 | Routed-message (auto-answered) accuracy | 0.9983 |
 | OOD false-accept rate (held-out OOD test) | 0.40 |
@@ -191,24 +205,60 @@ are kept separate (the router reports both when you need them via
 **Measured held-out impact (frozen 600 in-domain test + 30 OOD test,
 threshold tuned on the calibration dev split only):**
 
-| pipeline | macro-F1 | coverage | routed acc | OOD false-accept |
+| pipeline | pipeline_macro_f1_with_abstentions | coverage | routed acc | OOD false-accept |
 |---|---|---|---|---|
 | A: router only | 0.8998 | 98.33% | 99.83% | 0.400 (12/30) |
 | B: short + router | 0.8998 | 98.33% | 99.83% | 0.400 (12/30) |
 | C: BinaryOOD + router | 0.8871 | 95.67% | 99.83% | 0.067 (2/30) |
 | D: short + BinaryOOD + router | 0.8871 | 95.67% | 99.83% | 0.067 (2/30) |
 
+Note: `raw_intent_classifier_macro_f1` is **0.9950 for all four pipelines** —
+the classifier itself never regresses. The lower `pipeline_macro_f1_with_abstentions`
+numbers reflect only the escalation/abstention budget: C and D escalate 26
+in-domain messages (vs 10 at baseline), each counting as a miss, and the
+macro average includes an `ESCALATED` pseudo-class with F1 = 0.
+
 C and D bring OOD false-accept from 40% to **6.7%** (≤10% target met) while
 keeping in-domain coverage at 95.67% (≥95% target) and routed-message
-accuracy at 99.83%. Macro-F1 drops from 0.8998 to 0.8871 because ~16 more
-genuinely ambiguous in-domain messages now escalate (the intended safety
-tradeoff). Calibration quality on the dev split: AUROC 0.9991, AUPRC 0.9987,
-threshold 0.6848 (in-domain false-reject ≤ 2% on caldev).
+accuracy at 99.83%. Calibration quality on the dev split: AUROC 0.9991,
+AUPRC 0.9987, threshold 0.6848 (in-domain false-reject ≤ 2% on caldev).
 
-**Known remaining weakness:** one held-out OOD sample still routes
-("is the pool open in the morning", a question-shaped message that
-lexically resembles PROGRAM_ENQUIRY and gets in-domain probability 0.792);
-and the added transform pushes p50 latency to ~1.87 ms (target < 1.5 ms).
+### Two operating modes
+
+**Default mode** — `short_ambiguous -> intent router` (BinaryOODGuard OFF)
+
+* ~0.9 ms p50 per predict
+* high coverage: 98.33% auto-routed
+* weaker OOD rejection: 0.40 OOD false-accept on the current 30-sample
+  held-out OOD set
+
+**Safety mode** — `short_ambiguous -> BinaryOODGuard -> intent router`
+
+* OOD false-accept **6.7% (2/30)** on the current 30-sample held-out OOD set
+* coverage 95.67%
+* routed accuracy 99.83%
+* p50 ~1.87 ms per predict
+* ~283 KiB extra model artifact
+* **experimental** because the held-out OOD set is small
+
+**Explicit caveats (safety mode):**
+
+* **2/30 OOD false accepts remain** even with the BinaryOODGuard enabled.
+* **30 samples is too small** to claim robust production OOD performance —
+  the 6.7% figure is noisy (one sample ≈ 3.3 percentage points).
+* **BinaryOODGuard is experimental / opt-in.** It is off by default; the
+  default chain remains `["short_ambiguous"]`.
+* The **trained OOD artifact is not included in the public repo** — it is
+  gitignored (`models/ood_guard.joblib`).
+* **Users must train or supply their own OOD guard artifact**
+  (`BinaryOODGuard.fit(...).save(...)`), then attach it via
+  `ood_model_path=...` at load time. See `src/hermes_intent_router/guards.py`.
+
+**Known remaining weakness:** two held-out OOD samples still route even in
+safety mode ("is the pool open in the morning", conf 0.670, and
+"i noticed a leaking tap in the kitchen", conf 0.388 — both question- or
+statement-shaped messages that lexically resemble PROGRAM_ENQUIRY). The
+added transform also pushes p50 latency to ~1.85 ms (target < 1.5 ms).
 Neither is a system failure, but they are the practical limit of a cheap
 TF-IDF gate.
 
@@ -269,10 +319,10 @@ Two measurements are reported below. Keep them separate:
   Jetson Orin Nano Super CPU. These numbers characterise the underlying
   classifier path and are NOT the final packaged router measurement:
 
-|| model | macro-F1 | median latency (Jetson CPU) |
-||---|---|---|---|
-|| TF-IDF + MLP | 0.995 | ~0.37 ms |
-|| TF-IDF + logistic regression | 0.988 | ~0.33 ms |
+| model | macro-F1 | median latency (Jetson CPU) |
+|---|---|---|
+| TF-IDF + MLP | 0.995 | ~0.37 ms |
+| TF-IDF + logistic regression | 0.988 | ~0.33 ms |
 
 * **Final packaged router** — the committed bundle
   `models/acceptance_mlp.joblib`, calibrated with the OOD-aware quality
@@ -280,26 +330,26 @@ Two measurements are reported below. Keep them separate:
   throughput and bundle size are end-to-end per `predict()` (TF-IDF transform
   + classifier + threshold), single-thread, warm cache:
 
-|| metric | result |
-||---|---|
-|| Test accuracy (in-distribution, held-out) | 0.9950 |
-|| Macro-F1 (in-distribution, held-out) | 0.9950 |
-|| Routing coverage (in-distribution) | 98.33% auto-routed |
-|| Routed-message accuracy | 0.9983 |
-|| Confidence threshold (final) | 0.3621 |
-|| p50 latency per predict | 0.903 ms |
-|| p95 latency per predict | 0.919 ms |
-|| p99 latency per predict | 0.919 ms |
-|| Throughput | 1106.4 inferences/sec (single thread) |
-|| Process RSS (max) | 117156 KiB |
-|| Model bundle size on disk | 7,104,674 B (joblib + JSON sidecar ignored from publishing) |
+| metric | result |
+|---|---|
+| Test accuracy (in-distribution, held-out) | 0.9950 |
+| raw_intent_classifier_macro_f1 (in-distribution, held-out) | 0.9950 |
+| Routing coverage (in-distribution) | 98.33% auto-routed |
+| Routed-message accuracy | 0.9983 |
+| Confidence threshold (final) | 0.3621 |
+| p50 latency per predict | 0.903 ms |
+| p95 latency per predict | 0.919 ms |
+| p99 latency per predict | 0.919 ms |
+| Throughput | 1106.4 inferences/sec (single thread) |
+| Process RSS (max) | 117156 KiB |
+| Model bundle size on disk | 7,104,674 B (joblib + JSON sidecar ignored from publishing) |
 
 Hardware: Jetson Orin Nano Super CPU. No CUDA/Ollama/GPU acceleration; all
 latency is measured on the host CPU, one thread.
 
-The repo target remains: macro-F1 >= ~0.99 on the held-out test set when
-retrained with the same methodology, and local inference comfortably below
-1 ms median per predict.
+The repo target remains: raw_intent_classifier_macro_f1 >= ~0.99 on the
+held-out test set when retrained with the same methodology, and local
+inference comfortably below 1 ms median per predict.
 
 ## Final acceptance results (MLP bundle, held-out 600-test + 30 OOD-test)
 
@@ -308,21 +358,22 @@ does not change in-distribution metrics versus the no-guard baseline (zero added
 false-escalations); it converts the two previously-routed OOD known-failures
 into escalations.
 
-|| Metric | Result |
-|||---|---|
-||| Test accuracy | 0.9950 |
-||| Macro-F1 | 0.9983 |
-||| Routing coverage (auto-routed, in-distribution) | 98.33% |
-||| Accuracy among automatically routed messages | 99.83% |
-||| OOD false-accept rate | 0.40 |
-||| OOD escalation rate | 0.60 |
-||| In-domain false-escalations added by guard | 0 |
-||| p50 latency (guarded predict) | 0.922 ms |
-||| p95 latency | 0.929 ms |
-||| p99 latency | 0.929 ms |
-||| Throughput | ~1080 inferences/sec (single thread) |
-||| Process RSS (max) | ~134000 KiB |
-||| Confidence threshold | 0.3621 |
+| Metric | Result |
+|---|---|
+| raw intent-classifier accuracy (all 600 held-out) | 0.9950 |
+| raw_intent_classifier_macro_f1 (all 600 held-out) | 0.9950 |
+| pipeline_macro_f1_with_abstentions | 0.8998 |
+| Routing coverage (auto-routed, in-distribution) | 98.33% |
+| Accuracy among automatically routed messages | 99.83% |
+| OOD false-accept rate | 0.40 |
+| OOD escalation rate | 0.60 |
+| In-domain false-escalations added by guard | 0 |
+| p50 latency (guarded predict) | 0.922 ms |
+| p95 latency | 0.929 ms |
+| p99 latency | 0.929 ms |
+| Throughput | ~1080 inferences/sec (single thread) |
+| Process RSS (max) | ~134000 KiB |
+| Confidence threshold | 0.3621 |
 
 ## Tests
 
