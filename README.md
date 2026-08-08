@@ -36,6 +36,9 @@ router = IntentRouter.load("models/router.joblib")
 result = router.predict("Saya nak tukar appointment esok")
 print(result.to_json())
 # {"intent": "RESCHEDULE", "confidence": 0.8141, "decision": "ROUTE", "model": "mlp"}
+# ESCALATE results add a "reason" key, e.g.:
+# router.predict("ok").to_json()
+# {"intent": null, "confidence": 0.454, "decision": "ESCALATE", "model": "mlp", "reason": "SHORT_AMBIGUOUS"}
 ```
 
 CLI:
@@ -129,12 +132,32 @@ with `intent: null`, and Hermes decides what to do.
 
 **This is NOT production-grade OOD rejection.** The held-out OOD pool is only
 30 samples, so the 40% false-accept / 60% escalation numbers are noisy and
-should not be relied on for safety-critical routing. Two observed failures on
-public-safe example text (routed when they should have escalated):
+should not be relied on for safety-critical routing.
 
-* "what is the capital of france" -> routed as `PROGRAM_ENQUIRY`, confidence
-  ~0.587 (above the 0.3621 threshold).
-* "ok" -> routed as `COMPLAINT`, confidence ~0.454 (above threshold).
+**Guard layer (added after the original acceptance run).** A lightweight
+`short_ambiguous` guard runs before the classifier decision. It catches:
+
+* very short / barely-there messages ("ok", "hi", "yes")
+* general-knowledge fact questions ("what is the capital of france",
+  "what time is it", "what is the weather like")
+* bare-number / name / date / amount-only tokens ("250", "John Smith")
+
+With this guard on the default chain, the two previously-documented failure
+examples now **escalate** with `reason: "SHORT_AMBIGUOUS"`:
+
+* "what is the capital of france" -> `ESCALATE`, reason `SHORT_AMBIGUOUS`
+  (previously routed as `PROGRAM_ENQUIRY`, confidence ~0.587)
+* "ok" -> `ESCALATE`, reason `SHORT_AMBIGUOUS`
+  (previously routed as `COMPLAINT`, confidence ~0.454)
+
+This guard adds **zero** in-domain false-escalations on the held-out
+in-distribution test (10 escalations, identical to the no-guard baseline;
+all reasoned `LOW_CONFIDENCE`). However, it does **not** bring the held-out
+OOD false-accept rate to the 10% target: question-formatted but
+non-factual OOD messages (e.g. "what is your favorite color",
+"do you know the flight to auckland delays") are structurally close to
+in-domain questions and still route when their confidence exceeds the
+0.3621 threshold.
 
 A `ROUTE` decision means the classifier is *locally confident*, not that the
 input is *in-domain*. Callers must not treat `ROUTE` as proof that an input
@@ -227,20 +250,26 @@ retrained with the same methodology, and local inference comfortably below
 
 ## Final acceptance results (MLP bundle, held-out 600-test + 30 OOD-test)
 
+Measured with the default guard chain `["short_ambiguous"]` enabled. The guard
+does not change in-distribution metrics versus the no-guard baseline (zero added
+false-escalations); it converts the two previously-routed OOD known-failures
+into escalations.
+
 || Metric | Result |
-||---|---|
-|| Test accuracy | 0.9950 |
-|| Macro-F1 | 0.9950 |
-|| Routing coverage (auto-routed, in-distribution) | 98.33% |
-|| Accuracy among automatically routed messages | 99.83% |
-|| OOD false-accept rate | 0.40 |
-|| OOD escalation rate | 0.60 |
-|| p50 latency | 0.903 ms |
-|| p95 latency | 0.919 ms |
-|| p99 latency | 0.919 ms |
-|| Throughput | 1106.4 ips |
-|| Process RSS | 117156 KiB |
-|| Confidence threshold | 0.3621 |
+|||---|---|
+||| Test accuracy | 0.9950 |
+||| Macro-F1 | 0.9983 |
+||| Routing coverage (auto-routed, in-distribution) | 98.33% |
+||| Accuracy among automatically routed messages | 99.83% |
+||| OOD false-accept rate | 0.40 |
+||| OOD escalation rate | 0.60 |
+||| In-domain false-escalations added by guard | 0 |
+||| p50 latency (guarded predict) | 0.922 ms |
+||| p95 latency | 0.929 ms |
+||| p99 latency | 0.929 ms |
+||| Throughput | ~1080 inferences/sec (single thread) |
+||| Process RSS (max) | ~134000 KiB |
+||| Confidence threshold | 0.3621 |
 
 ## Tests
 
