@@ -22,10 +22,13 @@ from .guards import (
     ShortAmbiguousGuard,
     PredictionMarginGuard,
     EntropyGuard,
+    BinaryOODGuard,
     LOW_CONFIDENCE,
     SHORT_AMBIGUOUS,
     LOW_MARGIN,
     HIGH_ENTROPY,
+    OOD_CLASSIFIER,
+    DEFAULT_OOD_THRESHOLD,
 )
 
 
@@ -53,6 +56,7 @@ class IntentRouter:
         bundle: ModelBundle,
         *,
         guards: Optional[list[str]] = None,
+        ood_model: Optional["BinaryOODGuard"] = None,
     ) -> None:
         self.bundle = bundle
         # Rebuild the pipeline so `predict` is a single call; the pipeline is
@@ -72,14 +76,25 @@ class IntentRouter:
         self._short_guard = ShortAmbiguousGuard()
         self._margin_guard = PredictionMarginGuard(min_margin=0.10)
         self._entropy_guard = EntropyGuard()
+        # Optional binary OOD detector. Loaded separately from the intent
+        # bundle so it can be upgraded independently. Off by default.
+        self._ood_guard = ood_model
 
     @classmethod
-    def load(cls, path: str | Path) -> "IntentRouter":
-        return cls(load_bundle(path))
+    def load(cls, path: str | Path, *, guards: Optional[list[str]] = None, ood_model_path: Optional[str | Path] = None) -> "IntentRouter":
+        bundle = load_bundle(path)
+        ood_model = BinaryOODGuard.load(ood_model_path) if ood_model_path else None
+        return cls(bundle, guards=guards, ood_model=ood_model)
 
     @classmethod
-    def from_bundle(cls, bundle: ModelBundle, *, guards: Optional[list[str]] = None) -> "IntentRouter":
-        return cls(bundle, guards=guards)
+    def from_bundle(
+        cls,
+        bundle: ModelBundle,
+        *,
+        guards: Optional[list[str]] = None,
+        ood_model: Optional["BinaryOODGuard"] = None,
+    ) -> "IntentRouter":
+        return cls(bundle, guards=guards, ood_model=ood_model)
 
     # -- properties ------------------------------------------------------
     @property
@@ -137,6 +152,19 @@ class IntentRouter:
                 top_k=tuple(top[:5]),
                 reason=SHORT_AMBIGUOUS,
             )
+
+        # 2. optional binary OOD detector (runs before confidence check)
+        if self._ood_guard is not None:
+            ood_p = float(self._ood_guard.predict_proba([text])[0])
+            if ood_p < self._ood_guard.threshold:
+                return RoutingResult(
+                    intent=None,
+                    confidence=conf,
+                    decision=Decision.ESCALATE,
+                    model=self._model_type,
+                    top_k=tuple(top[:5]),
+                    reason=OOD_CLASSIFIER,
+                )
 
         reason = None
         # 2. prediction margin

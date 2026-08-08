@@ -33,6 +33,11 @@ LOW_CONFIDENCE = "LOW_CONFIDENCE"
 SHORT_AMBIGUOUS = "SHORT_AMBIGUOUS"
 LOW_MARGIN = "LOW_MARGIN"
 HIGH_ENTROPY = "HIGH_ENTROPY"
+OOD_CLASSIFIER = "OOD_CLASSIFIER"
+
+# Threshold for the BinaryOODGuard in-domain probability below which a message
+# is escalated as out-of-domain. Tuned on the calibration dev split only.
+DEFAULT_OOD_THRESHOLD = 0.6848
 
 # Minimum token count and minimum character count below which a message is
 # treated as too short / ambiguous to route autonomously.
@@ -143,3 +148,90 @@ class EntropyGuard:
             return np.ones(len(texts))
         ent = -np.sum(proba * np.log(proba + 1e-12), axis=1)
         return np.clip(1.0 - ent / self.max_entropy, 0, 1)
+
+
+class BinaryOODGuard:
+    """Binary in-domain-vs-OOD classifier.
+
+    Trained on in-domain texts (label 1) and out-of-domain texts (label 0),
+    then exposed to the router via ``predict_proba``. A message whose
+    in-domain probability falls below ``threshold`` is escalated with reason
+    ``OOD_CLASSIFIER``.
+
+    The detector is **optional** and **off by default**. Its artifact is
+    loaded separately from the intent model bundle (via ``ood_model_path`` on
+    ``IntentRouter``) so that the existing bundle stays unchanged and the
+    guard can be upgraded independently.
+
+    Implementation detail: a char-word TF-IDF union + LogisticRegression
+    (char_wb n-grams 2-5 dominate because they capture subword morphology
+    that separates Malay/English code-switch from in-domain finance phrasing).
+    """
+    name = "binary_ood"
+
+    def __init__(self, threshold: float = DEFAULT_OOD_THRESHOLD) -> None:
+        self.threshold = threshold
+        self.vec = None
+        self.clf = None
+
+    def fit(self, in_domain_texts, ood_texts, random_state: int = 42, variant: str = "char", min_df: int = 1) -> "BinaryOODGuard":
+        try:
+            from sklearn.feature_extraction.text import TfidfVectorizer
+            from sklearn.linear_model import LogisticRegression
+            from sklearn.pipeline import FeatureUnion
+        except ImportError:
+            raise ImportError("BinaryOODGuard requires scikit-learn")
+        if variant == "char":
+            self.vec = TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 5),
+                                       min_df=min_df, sublinear_tf=True)
+        elif variant == "word":
+            self.vec = TfidfVectorizer(token_pattern=r"(?u)\b\w[\w']+\b",
+                                       ngram_range=(1, 2), min_df=min_df, sublinear_tf=True)
+        elif variant == "word_char":
+            self.vec = FeatureUnion([
+                ("w", TfidfVectorizer(token_pattern=r"(?u)\b\w[\w']+\b", ngram_range=(1, 2),
+                                      min_df=min_df, sublinear_tf=True)),
+                ("c", TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 5),
+                                      min_df=min_df, sublinear_tf=True)),
+            ])
+        else:
+            raise ValueError(f"unknown variant: {variant}")
+        self.variant = variant
+        self.clf = LogisticRegression(C=1.0, class_weight="balanced",
+                                    max_iter=2000, random_state=random_state)
+        X_texts = list(in_domain_texts) + list(ood_texts)
+        y = [1] * len(in_domain_texts) + [0] * len(ood_texts)
+        X = self.vec.fit_transform(X_texts)
+        self.clf.fit(X, y)
+        return self
+
+    def predict_proba(self, texts) -> np.ndarray:
+        """Return in-domain probability (column 1) for each text."""
+        if self.vec is None or self.clf is None:
+            return np.ones(len(texts))
+        X = self.vec.transform(list(texts))
+        return self.clf.predict_proba(X)[:, 1]
+
+    def score(self, texts, proba, preds, topk=None) -> np.ndarray:
+        """Return in-domain probability; below ``threshold`` means OOD."""
+        return self.predict_proba(texts)
+
+    def reject(self, text: str) -> bool:
+        return bool(self.predict_proba([text])[0] < self.threshold)
+
+    @classmethod
+    def load(cls, path: str) -> "BinaryOODGuard":
+        import joblib
+        data = joblib.load(path)
+        g = cls.__new__(cls)
+        g.threshold = data.get("threshold", DEFAULT_OOD_THRESHOLD)
+        g.variant = data.get("variant", "char")
+        g.vec = data["vec"]
+        g.clf = data["clf"]
+        return g
+
+    def save(self, path: str) -> None:
+        import joblib
+        joblib.dump({"vec": self.vec, "clf": self.clf,
+                     "threshold": self.threshold,
+                     "variant": getattr(self, "variant", "char")}, path)

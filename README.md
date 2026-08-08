@@ -120,15 +120,15 @@ with `intent: null`, and Hermes decides what to do.
 
 **Final measured threshold and routing behaviour (held-out evaluation):**
 
-|| metric | result |
-||---|---|
-|| Final confidence threshold | 0.3621 |
-|| In-distribution test macro-F1 | 0.9950 |
-|| In-distribution routing coverage | 98.33% auto-routed |
-|| Routed-message (auto-answered) accuracy | 0.9983 |
-|| OOD false-accept rate (held-out OOD test) | 0.40 |
-|| OOD escalation rate (held-out OOD test) | 0.60 |
-|| OOD test pool size | 30 samples |
+| metric | result |
+|---|---|
+| Final confidence threshold | 0.3621 |
+| In-distribution test macro-F1 | 0.9950 |
+| In-distribution routing coverage | 98.33% auto-routed |
+| Routed-message (auto-answered) accuracy | 0.9983 |
+| OOD false-accept rate (held-out OOD test) | 0.40 |
+| OOD escalation rate (held-out OOD test) | 0.60 |
+| OOD test pool size | 30 samples |
 
 **This is NOT production-grade OOD rejection.** The held-out OOD pool is only
 30 samples, so the 40% false-accept / 60% escalation numbers are noisy and
@@ -158,6 +158,59 @@ non-factual OOD messages (e.g. "what is your favorite color",
 "do you know the flight to auckland delays") are structurally close to
 in-domain questions and still route when their confidence exceeds the
 0.3621 threshold.
+
+### Optional BinaryOODGuard (experimental, off by default)
+
+A dedicated binary in-domain-vs-OOD classifier can be attached to the router
+to reject OOD traffic *before* the confidence check. It is **optional and
+off by default** — the default chain remains `["short_ambiguous"]`, so the
+existing bundle and API are unchanged.
+
+Training data is a private in-domain set (label 1) plus a public-safe
+synthetic OOD corpus (label 0). The default artifact (`models/ood_guard.joblib`)
+uses char-n-gram TF-IDF (2-5) + logistic regression, ~283 KiB, and is
+gitignored like all model artifacts.
+
+Attach it at load time:
+
+```python
+router = IntentRouter.load(
+    "models/acceptance_mlp.joblib",
+    guards=["short_ambiguous"],          # optional; keep or drop
+    ood_model_path="models/ood_guard.joblib",   # optional OOD detector
+)
+result = router.predict("what is your favorite color")
+# {"intent": null, "confidence": 0.435, "decision": "ESCALATE",
+#  "model": "mlp", "reason": "OOD_CLASSIFIER"}
+```
+
+The OOD classifier's probability is **not** the intent confidence; the two
+are kept separate (the router reports both when you need them via
+`router.predict`'s `top_k` and the guard's own score).
+
+**Measured held-out impact (frozen 600 in-domain test + 30 OOD test,
+threshold tuned on the calibration dev split only):**
+
+| pipeline | macro-F1 | coverage | routed acc | OOD false-accept |
+|---|---|---|---|---|
+| A: router only | 0.8998 | 98.33% | 99.83% | 0.400 (12/30) |
+| B: short + router | 0.8998 | 98.33% | 99.83% | 0.400 (12/30) |
+| C: BinaryOOD + router | 0.8871 | 95.67% | 99.83% | 0.067 (2/30) |
+| D: short + BinaryOOD + router | 0.8871 | 95.67% | 99.83% | 0.067 (2/30) |
+
+C and D bring OOD false-accept from 40% to **6.7%** (≤10% target met) while
+keeping in-domain coverage at 95.67% (≥95% target) and routed-message
+accuracy at 99.83%. Macro-F1 drops from 0.8998 to 0.8871 because ~16 more
+genuinely ambiguous in-domain messages now escalate (the intended safety
+tradeoff). Calibration quality on the dev split: AUROC 0.9991, AUPRC 0.9987,
+threshold 0.6848 (in-domain false-reject ≤ 2% on caldev).
+
+**Known remaining weakness:** one held-out OOD sample still routes
+("is the pool open in the morning", a question-shaped message that
+lexically resembles PROGRAM_ENQUIRY and gets in-domain probability 0.792);
+and the added transform pushes p50 latency to ~1.87 ms (target < 1.5 ms).
+Neither is a system failure, but they are the practical limit of a cheap
+TF-IDF gate.
 
 A `ROUTE` decision means the classifier is *locally confident*, not that the
 input is *in-domain*. Callers must not treat `ROUTE` as proof that an input
