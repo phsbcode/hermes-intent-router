@@ -1,0 +1,32 @@
+# Intents understood by hermes-intent-router.
+#
+# This file is the single source of truth for the label space. It ships with
+# the repo and is used to validate training data, seed the synthetic fixture
+# generator, and constrain evaluation reports. Production deployments can
+# extend this list; retrain and re-package the model bundle afterwards.
+#
+# NOTE: keep in sync with tests/fixtures/generate_fixtures.py if you add
+# intents, otherwise the fixture generator will not emit those labels.
+
+intents:
+  - PAYMENT
+  - RESCHEDULE
+  - CANCEL
+  - MENTORING_ENQUIRY
+  - PROGRAM_ENQUIRY
+  - BOOK_PURCHASE
+  - UNIT_TRUST
+  - COMPLAINT
+  - GENERAL
+  - OTHER
+
+# Model type used when training. Valid values:
+#   mlp                  -> sklearn MLPClassifier (default, benchmark-winning)
+#   logistic_regression -> sklearn LogisticRegression (simpler fallback)
+# Confirmed on the original private intent dataset (Aug 2026):
+#   mlp macro-F1 0.9950, lr macro-F1 0.9883 on the held-out test split.
+model_type: mlp
+
+# Confidence threshold for the ROUTE decision. Samples with max probability at
+# or above this value are answered locally; below it -> ESCALATE.
+confidence_threshold: 0.80

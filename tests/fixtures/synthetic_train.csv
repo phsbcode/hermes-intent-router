@@ -1,0 +1,901 @@
+text,intent
+"hi, rasa penat hari ini",OTHER
+there is a spider in my room,OTHER
+tolong bayar bil saya terima kasih,PAYMENT
+do you offer mentoring sessions Mei ya,MENTORING_ENQUIRY
+apa itu program asas Raj hari ini,PROGRAM_ENQUIRY
+how do i invest in unit trust Siti ok,UNIT_TRUST
+tolong what are unit trust returns,UNIT_TRUST
+"hi, saya nak tukar appointment esok",RESCHEDULE
+mentoring program details please ok,MENTORING_ENQUIRY
+change the date of my session please John,RESCHEDULE
+tolong boleh saya settle baki tertunggak sekarang,PAYMENT
+i want to cancel my order sekarang,CANCEL
+"hi, can i order the book online",BOOK_PURCHASE
+sila layanan buruk yang saya terima Ali,COMPLAINT
+"excuse me, boleh tukar tarikh temujanji Dina please",RESCHEDULE
+program apa yang awak ada Siti,PROGRAM_ENQUIRY
+please ada program untuk pemula Mei,PROGRAM_ENQUIRY
+"hi, recommend a unit trust fund 🙏",UNIT_TRUST
+saya nak cancel langganan esok,CANCEL
+"nak tanya, the app keeps crashing and i am upset John",COMPLAINT
+how do i contact support ok,GENERAL
+"hey, please cancel my subscription ok",CANCEL
+"nak tanya, saya nak tengok unit trust saya",UNIT_TRUST
+i am unhappy with the service esok,COMPLAINT
+nak tau cuaca hari ni Ali,OTHER
+"hi, what is the mentoring fee",MENTORING_ENQUIRY
+"hello, cancel the session next week Raj",CANCEL
+unit amanah unit trust returns 🙏,UNIT_TRUST
+change the date of my session please Ali ok,RESCHEDULE
+i need a mentor for forex 🙏,MENTORING_ENQUIRY
+"hey, apa itu program asas",PROGRAM_ENQUIRY
+payment already done Mei please,PAYMENT
+kindly this billing error is unacceptable,COMPLAINT
+kindly what cat breed is best terima kasih,OTHER
+"excuse me, saya nak cancel langganan John",CANCEL
+please batalkan pesanan saya,CANCEL
+ada program untuk pemula Ali ok,PROGRAM_ENQUIRY
+tell me about your company thanks,GENERAL
+tolong how much is the book ok,BOOK_PURCHASE
+bila office anda buka Siti please,GENERAL
+how do i contact support ya,GENERAL
+"excuse me, i just made a payment Ali 🙏",PAYMENT
+"nak tanya, phonenumber for support? ya",GENERAL
+please what is the mentoring fee Raj ok,MENTORING_ENQUIRY
+"nak tanya, mentoring program details please Ali",MENTORING_ENQUIRY
+tolong tolong bayar bil saya,PAYMENT
+"hi, cancel my booking please Siti",CANCEL
+"hey, i want to cancel my appointment hari ini",CANCEL
+kindly united trust portfolio update Siti,UNIT_TRUST
+what is the weather today thanks,OTHER
+recommend a unit trust fund Mei ok,UNIT_TRUST
+program details for investment Dina,PROGRAM_ENQUIRY
+saya tidak puas hati dengan service Dina,COMPLAINT
+tolong i want to pay my bill Siti,PAYMENT
+book order request Ali 🙏,BOOK_PURCHASE
+please phonenumber for support? Ali,GENERAL
+change the date of my session please Raj 🙏,RESCHEDULE
+sila is there a program for beginners Raj,PROGRAM_ENQUIRY
+"hey, tell me a joke please",OTHER
+i just made a payment Mei ok,PAYMENT
+sila layanan buruk yang saya terima dan lain lain,COMPLAINT
+kindly i want to buy your book Dina,BOOK_PURCHASE
+tell me about your company John please,GENERAL
+saya nak nak tau cuaca hari ni,OTHER
+"hi, i am unhappy with the service",COMPLAINT
+"hey, bila office anda buka",GENERAL
+cancel my booking please sekarang,CANCEL
+can i move my meeting to another day John,RESCHEDULE
+"hey, please reschedule my appointment Siti",RESCHEDULE
+berapa yuran sesi mentoring,MENTORING_ENQUIRY
+"hi, i want to pay my bill thanks",PAYMENT
+"hello, info am pasal servis",GENERAL
+i want to buy your book sekarang,BOOK_PURCHASE
+i just made a payment John,PAYMENT
+sila hantar program info Siti,PROGRAM_ENQUIRY
+berapa harga buku cikgu Dina dan lain lain,BOOK_PURCHASE
+saya nak macam mana nak hubungi anda Siti,GENERAL
+please payment already done please,PAYMENT
+dah bayar invoice tu Raj dan lain lain,PAYMENT
+please how much is the book ya,BOOK_PURCHASE
+"hello, cancel the session next week",CANCEL
+kindly what time do you open today Siti,GENERAL
+ada program untuk pemula Dina terima kasih,PROGRAM_ENQUIRY
+sila program apa yang awak ada John,PROGRAM_ENQUIRY
+i just made a payment esok,PAYMENT
+change the date of my session please Mei,RESCHEDULE
+recommend a good movie John terima kasih,OTHER
+kindly program details for investment esok,PROGRAM_ENQUIRY
+do you offer mentoring sessions terima kasih,MENTORING_ENQUIRY
+"hi, berapa yuran sesi mentoring John",MENTORING_ENQUIRY
+saya nak saya nak cancel langganan John thanks,CANCEL
+united trust portfolio update sekarang,UNIT_TRUST
+"nak tanya, nak beli buku saham Siti ok",BOOK_PURCHASE
+sila hantar program info Mei,PROGRAM_ENQUIRY
+recommend a unit trust fund Mei,UNIT_TRUST
+i want to cancel my order Siti sekarang,CANCEL
+cancel my booking please Dina ok,CANCEL
+i need a mentor for forex Siti 🙏,MENTORING_ENQUIRY
+what are your opening hours Ali dan lain lain,GENERAL
+"hey, program apa yang awak ada",PROGRAM_ENQUIRY
+kindly united trust portfolio update thanks,UNIT_TRUST
+i want to pay my bill John ya,PAYMENT
+rasa penat hari ini Dina esok,OTHER
+saya nak beli buku itu Ali please,BOOK_PURCHASE
+"nak tanya, nak beli buku saham ya",BOOK_PURCHASE
+tolong cancel booking saya esok,CANCEL
+"hi, nak mentor untuk trading Ali",MENTORING_ENQUIRY
+"excuse me, your staff was rude to me",COMPLAINT
+there is a spider in my room Raj hari ini,OTHER
+saya nak berapa yuran sesi mentoring,MENTORING_ENQUIRY
+saya nak beli buku itu Ali terima kasih,BOOK_PURCHASE
+"hello, program apa yang awak ada John",PROGRAM_ENQUIRY
+"hey, do you offer mentoring sessions",MENTORING_ENQUIRY
+"hey, please reschedule my appointment Raj terima kasih",RESCHEDULE
+quote for insurance Raj,OTHER
+"excuse me, recommend a unit trust fund thanks",UNIT_TRUST
+"hello, bila office anda buka 🙏",GENERAL
+"nak tanya, can i move my meeting to another day",RESCHEDULE
+what programs do you offer Ali thanks,PROGRAM_ENQUIRY
+phonenumber for support? Siti,GENERAL
+"excuse me, tolong cancel booking saya Siti",CANCEL
+batalkan pesanan saya terima kasih,CANCEL
+"hey, aadu tor service hampir takde sekarang",COMPLAINT
+kindly what is the weather today sekarang,OTHER
+sila reschedule my booking,RESCHEDULE
+do you offer mentoring sessions esok,MENTORING_ENQUIRY
+"excuse me, batalkan pesanan saya terima kasih",CANCEL
+quote for insurance Mei dan lain lain,OTHER
+saya nak tukar appointment esok sekarang,RESCHEDULE
+i would like a mentor for investing Mei please,MENTORING_ENQUIRY
+i want to pay my bill dan lain lain,PAYMENT
+tolong tolong bayar bil saya Raj hari ini,PAYMENT
+saya nak info am pasal servis,GENERAL
+macam mana nak hubungi anda Mei 🙏,GENERAL
+kindly layanan buruk yang saya terima Dina,COMPLAINT
+"hello, change the date of my session please please",RESCHEDULE
+recommend a good movie John,OTHER
+tell me about your company please,GENERAL
+please i want to check my unit trust balance sekarang,UNIT_TRUST
+"excuse me, i want to change my session time ya",RESCHEDULE
+what time do you open today Dina sekarang,GENERAL
+sila macam mana nak hubungi anda please,GENERAL
+"nak tanya, berapa yuran sesi mentoring Raj ok",MENTORING_ENQUIRY
+"hey, boleh tukar tarikh temujanji John thanks",RESCHEDULE
+please cuti saya cancel semua,CANCEL
+please settle my outstanding balance John,PAYMENT
+saya tidak puas hati dengan service Mei 🙏,COMPLAINT
+"nak tanya, where can i purchase the book",BOOK_PURCHASE
+please saya tidak puas hati dengan service thanks,COMPLAINT
+nak mentor untuk trading,MENTORING_ENQUIRY
+tolong cancel booking saya,CANCEL
+"nak tanya, i need a mentor for forex thanks",MENTORING_ENQUIRY
+saya nak buat bayaran sekarang terima kasih,PAYMENT
+how do i enrol in the program Ali ya,PROGRAM_ENQUIRY
+tell me about your company Siti hari ini,GENERAL
+i want to buy your book Siti ya,BOOK_PURCHASE
+info am pasal servis thanks,GENERAL
+kindly cancel my booking please,CANCEL
+saya nak i need a mentor for forex sekarang,MENTORING_ENQUIRY
+please i want to buy your book,BOOK_PURCHASE
+i would like a mentor for investing John,MENTORING_ENQUIRY
+saya nak nak beli buku saham ya,BOOK_PURCHASE
+i want to cancel my appointment Dina,CANCEL
+sila phonenumber for support? sekarang,GENERAL
+"hey, tolong cancel booking saya thanks",CANCEL
+"hi, saya dah buat payment esok",PAYMENT
+sila buy the trading book,BOOK_PURCHASE
+please macam mana nak invest unit amanah,UNIT_TRUST
+there is a spider in my room 🙏,OTHER
+"hi, please settle my outstanding balance ok",PAYMENT
+i want to cancel my order ok,CANCEL
+tolong bayar bil saya Raj terima kasih,PAYMENT
+sila please move my appointment to friday,RESCHEDULE
+tolong how much is a mentoring session,MENTORING_ENQUIRY
+i would like a mentor for investing esok,MENTORING_ENQUIRY
+bila office anda buka Dina,GENERAL
+bila office anda buka,GENERAL
+what cat breed is best Raj dan lain lain,OTHER
+please dah bayar invoice tu Mei,PAYMENT
+what are your opening hours ok,GENERAL
+saya nak tengok unit trust saya ok,UNIT_TRUST
+cuti saya cancel semua please,CANCEL
+please i need a mentor for forex thanks,MENTORING_ENQUIRY
+"hi, bila office anda buka dan lain lain",GENERAL
+tolong saya nak tukar appointment esok ok,RESCHEDULE
+kindly do you offer mentoring sessions thanks,MENTORING_ENQUIRY
+program details for investment thanks,PROGRAM_ENQUIRY
+payment already done please,PAYMENT
+saya nak cancel langganan ya,CANCEL
+please saya nak buat bayaran sekarang 🙏,PAYMENT
+saya nak this billing error is unacceptable Raj sekarang,COMPLAINT
+"hi, how do i pay my latest invoice hari ini",PAYMENT
+tolong cancel the session next week dan lain lain,CANCEL
+how do i contact support terima kasih,GENERAL
+phonenumber for support? Siti ok,GENERAL
+tolong recommend a good movie please,OTHER
+i want to complain about the delay Ali,COMPLAINT
+"nak tanya, saya nak cancel langganan",CANCEL
+"hey, quote for insurance",OTHER
+nak beli buku saham Mei,BOOK_PURCHASE
+dah bayar invoice tu please,PAYMENT
+sila please cancel my subscription Raj thanks,CANCEL
+how do i invest in unit trust John hari ini,UNIT_TRUST
+please nak mentor untuk trading ya,MENTORING_ENQUIRY
+program details for investment Ali hari ini,PROGRAM_ENQUIRY
+payment already done Ali,PAYMENT
+"excuse me, boleh saya settle baki tertunggak Ali sekarang",PAYMENT
+saya nak saya nak tukar jadual sesi Raj,RESCHEDULE
+sila saya nak buat bayaran sekarang Mei,PAYMENT
+i am unhappy with the service Mei,COMPLAINT
+saya nak there is a spider in my room terima kasih,OTHER
+saya nak beli buku itu sekarang,BOOK_PURCHASE
+"excuse me, boleh tak swap slot saya Siti ok",RESCHEDULE
+"nak tanya, your staff was rude to me Ali sekarang",COMPLAINT
+"hi, tell me a joke please",OTHER
+can you sing a song Mei ok,OTHER
+"hi, make payment for my account",PAYMENT
+"hi, what are your opening hours Siti",GENERAL
+"nak tanya, cancel the session next week",CANCEL
+tolong saya nak tukar jadual sesi Siti,RESCHEDULE
+reschedule my booking Ali sekarang,RESCHEDULE
+kindly macam mana nak invest unit amanah sekarang,UNIT_TRUST
+saya tidak puas hati dengan service John,COMPLAINT
+"excuse me, i want to cancel my appointment",CANCEL
+where can i purchase the book terima kasih,BOOK_PURCHASE
+"hello, do you offer mentoring sessions Mei",MENTORING_ENQUIRY
+kindly i want to pay my bill,PAYMENT
+kindly ada mentor tak untuk saham,MENTORING_ENQUIRY
+sila ada program untuk pemula hari ini,PROGRAM_ENQUIRY
+cuti saya cancel semua Mei thanks,CANCEL
+this billing error is unacceptable Raj sekarang,COMPLAINT
+"hey, program details for investment sekarang",PROGRAM_ENQUIRY
+can i move my meeting to another day Dina,RESCHEDULE
+tolong i want to make a payment,PAYMENT
+sila saya tidak puas hati dengan service esok,COMPLAINT
+saya dah buat payment Siti,PAYMENT
+"nak tanya, where is your office located ya",GENERAL
+please what is the mentoring fee,MENTORING_ENQUIRY
+"hey, buy the trading book Mei",BOOK_PURCHASE
+can you sing a song Mei ya,OTHER
+"hello, apa itu program asas hari ini",PROGRAM_ENQUIRY
+berapa yuran sesi mentoring Ali thanks,MENTORING_ENQUIRY
+i want to change my session time Dina,RESCHEDULE
+kindly how do i enrol in the program dan lain lain,PROGRAM_ENQUIRY
+please move my appointment to friday esok,RESCHEDULE
+"nak tanya, phonenumber for support? hari ini",GENERAL
+make payment for my account John 🙏,PAYMENT
+kindly saya nak tengok unit trust saya,UNIT_TRUST
+ada mentor tak untuk saham Ali ya,MENTORING_ENQUIRY
+"excuse me, what time do you open today",GENERAL
+is there a program for beginners Siti sekarang,PROGRAM_ENQUIRY
+"excuse me, i would like a mentor for investing",MENTORING_ENQUIRY
+"hi, please move my appointment to friday",RESCHEDULE
+dah bayar invoice tu Ali please,PAYMENT
+what programs do you offer John ya,PROGRAM_ENQUIRY
+kindly how do i enrol in the program Siti please,PROGRAM_ENQUIRY
+berapa yuran sesi mentoring Raj ya,MENTORING_ENQUIRY
+"nak tanya, ada mentor tak untuk saham",MENTORING_ENQUIRY
+"hey, nak tau cuaca hari ni Ali thanks",OTHER
+"nak tanya, please reschedule my appointment",RESCHEDULE
+"nak tanya, can i see the program schedule Dina 🙏",PROGRAM_ENQUIRY
+tolong i want to make a payment sekarang,PAYMENT
+"hey, what are unit trust returns hari ini",UNIT_TRUST
+i want to change my session time Raj dan lain lain,RESCHEDULE
+layanan buruk yang saya terima Dina sekarang,COMPLAINT
+kindly how much is the book,BOOK_PURCHASE
+"hey, what time do you open today ya",GENERAL
+kindly aadu tor service hampir takde thanks,COMPLAINT
+where can i purchase the book ya,BOOK_PURCHASE
+sila can you sing a song,OTHER
+rasa penat hari ini Mei,OTHER
+"hey, tell me about your company",GENERAL
+kindly i want to change my session time John,RESCHEDULE
+saya nak tukar jadual sesi ok,RESCHEDULE
+"hello, book order request Dina",BOOK_PURCHASE
+berapa harga buku cikgu John,BOOK_PURCHASE
+how much is a mentoring session ya,MENTORING_ENQUIRY
+can i move my meeting to another day 🙏,RESCHEDULE
+please move my appointment to friday Mei,RESCHEDULE
+can i move my meeting to another day Ali please,RESCHEDULE
+aadu tor service hampir takde Ali,COMPLAINT
+"hi, macam mana nak invest unit amanah sekarang",UNIT_TRUST
+"excuse me, cuti saya cancel semua Dina",CANCEL
+how much is the book dan lain lain,BOOK_PURCHASE
+sila hantar program info,PROGRAM_ENQUIRY
+rasa penat hari ini Ali,OTHER
+cuti saya cancel semua John,CANCEL
+"nak tanya, can you sing a song",OTHER
+"excuse me, there is a spider in my room ok",OTHER
+how much is the book thanks,BOOK_PURCHASE
+saya nak buat bayaran sekarang Mei thanks,PAYMENT
+ada mentor tak untuk saham Raj,MENTORING_ENQUIRY
+i want to buy your book ok,BOOK_PURCHASE
+"hey, this billing error is unacceptable",COMPLAINT
+sila unit amanah unit trust returns,UNIT_TRUST
+how do i contact support esok,GENERAL
+tolong what is the weather today Raj thanks,OTHER
+tolong layanan buruk yang saya terima,COMPLAINT
+saya nak beli buku itu Ali,BOOK_PURCHASE
+please cancel my booking please,CANCEL
+can you sing a song,OTHER
+please what are unit trust returns terima kasih,UNIT_TRUST
+i would like a mentor for investing ok,MENTORING_ENQUIRY
+"excuse me, berapa harga buku cikgu",BOOK_PURCHASE
+nak beli buku saham terima kasih,BOOK_PURCHASE
+"excuse me, how much is the book thanks",BOOK_PURCHASE
+please cancel the session next week Siti,CANCEL
+tolong cancel my booking please Mei,CANCEL
+sila boleh tukar tarikh temujanji,RESCHEDULE
+please do you offer mentoring sessions Dina,MENTORING_ENQUIRY
+phonenumber for support? Raj,GENERAL
+please mentoring program details please sekarang,MENTORING_ENQUIRY
+sila unit amanah unit trust returns Dina,UNIT_TRUST
+can i see the program schedule,PROGRAM_ENQUIRY
+"hey, how do i enrol in the program thanks",PROGRAM_ENQUIRY
+tolong payment already done,PAYMENT
+saya nak nak beli buku saham 🙏,BOOK_PURCHASE
+aadu tor service hampir takde Dina,COMPLAINT
+please apa itu program asas,PROGRAM_ENQUIRY
+saya nak tukar appointment esok thanks,RESCHEDULE
+sila ada program untuk pemula,PROGRAM_ENQUIRY
+quote for insurance Mei,OTHER
+tolong ada program untuk pemula hari ini,PROGRAM_ENQUIRY
+how do i invest in unit trust ok,UNIT_TRUST
+saya nak please cancel my subscription dan lain lain,CANCEL
+saya dah buat payment ya,PAYMENT
+"hello, tolong bayar bil saya Raj thanks",PAYMENT
+i want to buy your book terima kasih,BOOK_PURCHASE
+rasa penat hari ini Mei ya,OTHER
+payment already done Dina terima kasih,PAYMENT
+saya nak saya nak cancel langganan,CANCEL
+book order request ya,BOOK_PURCHASE
+"excuse me, nak mentor untuk trading Raj please",MENTORING_ENQUIRY
+can i move my meeting to another day hari ini,RESCHEDULE
+i am unhappy with the service dan lain lain,COMPLAINT
+"nak tanya, boleh tak swap slot saya hari ini",RESCHEDULE
+saya nak how do i pay my latest invoice hari ini,PAYMENT
+recommend a good movie 🙏,OTHER
+"hi, tell me about your company Mei",GENERAL
+what is the mentoring fee John 🙏,MENTORING_ENQUIRY
+"hello, rasa penat hari ini Mei",OTHER
+saya nak what is the mentoring fee Siti,MENTORING_ENQUIRY
+i want to cancel my appointment Ali terima kasih,CANCEL
+tolong phonenumber for support? hari ini,GENERAL
+saya nak batal sahaja appointment Dina,CANCEL
+kindly what are your opening hours Mei terima kasih,GENERAL
+saya nak this billing error is unacceptable 🙏,COMPLAINT
+saya nak buat bayaran sekarang sekarang,PAYMENT
+book order request,BOOK_PURCHASE
+"excuse me, your staff was rude to me John",COMPLAINT
+sila i am unhappy with the service,COMPLAINT
+"hey, macam mana nak hubungi anda Dina",GENERAL
+i want to cancel my order Raj,CANCEL
+what is the weather today terima kasih,OTHER
+"hey, payment already done Ali 🙏",PAYMENT
+boleh tak swap slot saya Ali,RESCHEDULE
+reschedule my booking hari ini,RESCHEDULE
+saya nak i want to cancel my order,CANCEL
+"nak tanya, batalkan pesanan saya Mei sekarang",CANCEL
+sila i am unhappy with the service Ali dan lain lain,COMPLAINT
+i just made a payment Mei sekarang,PAYMENT
+kindly the app keeps crashing and i am upset Mei thanks,COMPLAINT
+"hi, cancel my booking please",CANCEL
+kindly how much is a mentoring session,MENTORING_ENQUIRY
+make payment for my account please,PAYMENT
+sila what are unit trust returns,UNIT_TRUST
+kindly can you sing a song sekarang,OTHER
+sila where can i purchase the book,BOOK_PURCHASE
+i want to change my session time Mei dan lain lain,RESCHEDULE
+saya nak macam mana nak hubungi anda,GENERAL
+please how much is a mentoring session please,MENTORING_ENQUIRY
+saya nak i am unhappy with the service,COMPLAINT
+ada program untuk pemula Raj terima kasih,PROGRAM_ENQUIRY
+sila batalkan pesanan saya,CANCEL
+saya nak boleh tukar tarikh temujanji Dina,RESCHEDULE
+"nak tanya, what are your opening hours Raj",GENERAL
+i need a mentor for forex Dina ya,MENTORING_ENQUIRY
+reschedule my booking sekarang,RESCHEDULE
+how do i invest in unit trust,UNIT_TRUST
+cancel my booking please terima kasih,CANCEL
+what are unit trust returns Mei hari ini,UNIT_TRUST
+tolong cancel booking saya Mei,CANCEL
+this billing error is unacceptable Siti hari ini,COMPLAINT
+recommend a good movie Ali 🙏,OTHER
+tolong book order request,BOOK_PURCHASE
+"hello, united trust portfolio update Raj",UNIT_TRUST
+batalkan pesanan saya please,CANCEL
+tolong what are unit trust returns Mei dan lain lain,UNIT_TRUST
+please tolong cancel booking saya,CANCEL
+nak mentor untuk trading John thanks,MENTORING_ENQUIRY
+"nak tanya, i want to check my unit trust balance Ali",UNIT_TRUST
+saya nak recommend a good movie Mei 🙏,OTHER
+tolong i want to complain about the delay ya,COMPLAINT
+sila what is the mentoring fee ya,MENTORING_ENQUIRY
+nak mentor untuk trading John,MENTORING_ENQUIRY
+saya nak book order request Dina,BOOK_PURCHASE
+"hi, layanan buruk yang saya terima Siti",COMPLAINT
+sila ada program untuk pemula Ali thanks,PROGRAM_ENQUIRY
+how do i contact support please,GENERAL
+"excuse me, unit amanah unit trust returns please",UNIT_TRUST
+"nak tanya, i want to complain about the delay",COMPLAINT
+"hello, buy the trading book",BOOK_PURCHASE
+"hey, can i order the book online John",BOOK_PURCHASE
+please settle my outstanding balance Siti,PAYMENT
+buy the trading book John,BOOK_PURCHASE
+"hi, book order request terima kasih",BOOK_PURCHASE
+"nak tanya, how much is the book 🙏",BOOK_PURCHASE
+reschedule my booking thanks,RESCHEDULE
+how do i enrol in the program John,PROGRAM_ENQUIRY
+please cancel my subscription John terima kasih,CANCEL
+tell me a joke Ali,OTHER
+payment already done dan lain lain,PAYMENT
+layanan buruk yang saya terima ya,COMPLAINT
+nak tau cuaca hari ni Raj,OTHER
+"hi, reschedule my booking terima kasih",RESCHEDULE
+change the date of my session please Mei ok,RESCHEDULE
+can i move my meeting to another day Siti 🙏,RESCHEDULE
+saya nak can i move my meeting to another day dan lain lain,RESCHEDULE
+tolong what are your opening hours Ali,GENERAL
+sila berapa harga buku cikgu John dan lain lain,BOOK_PURCHASE
+"hi, cuti saya cancel semua terima kasih",CANCEL
+what programs do you offer ok,PROGRAM_ENQUIRY
+berapa yuran sesi mentoring dan lain lain,MENTORING_ENQUIRY
+saya nak how do i contact support,GENERAL
+book order request John ya,BOOK_PURCHASE
+saya nak what cat breed is best Raj,OTHER
+saya nak payment already done,PAYMENT
+this billing error is unacceptable Siti,COMPLAINT
+what is the mentoring fee Dina terima kasih,MENTORING_ENQUIRY
+tolong how do i contact support Mei,GENERAL
+sila i just made a payment,PAYMENT
+kindly i want to complain about the delay John,COMPLAINT
+sila can you sing a song ya,OTHER
+what programs do you offer Raj,PROGRAM_ENQUIRY
+tolong what is the weather today,OTHER
+sila batal sahaja appointment Mei hari ini,CANCEL
+tolong unit amanah unit trust returns Mei ya,UNIT_TRUST
+rasa penat hari ini Dina terima kasih,OTHER
+saya nak cuti saya cancel semua 🙏,CANCEL
+saya nak your staff was rude to me Raj,COMPLAINT
+"hi, cancel my booking please sekarang",CANCEL
+tolong saya nak tengok unit trust saya please,UNIT_TRUST
+i want to change my session time Dina ok,RESCHEDULE
+ada program untuk pemula Ali,PROGRAM_ENQUIRY
+what cat breed is best Ali sekarang,OTHER
+tolong macam mana nak invest unit amanah thanks,UNIT_TRUST
+unit amanah unit trust returns Mei sekarang,UNIT_TRUST
+tolong is there a program for beginners,PROGRAM_ENQUIRY
+how do i invest in unit trust Raj,UNIT_TRUST
+can you sing a song Mei,OTHER
+recommend a good movie John ya,OTHER
+how do i pay my latest invoice hari ini,PAYMENT
+kindly i want to complain about the delay hari ini,COMPLAINT
+kindly i want to check my unit trust balance,UNIT_TRUST
+make payment for my account Mei,PAYMENT
+macam mana nak invest unit amanah Mei,UNIT_TRUST
+cuti saya cancel semua terima kasih,CANCEL
+dah bayar invoice tu Mei hari ini,PAYMENT
+"hey, tell me a joke John",OTHER
+sila dah bayar invoice tu Mei please,PAYMENT
+saya nak saya nak buat bayaran sekarang ya,PAYMENT
+tell me about your company John,GENERAL
+"nak tanya, what is the mentoring fee Ali",MENTORING_ENQUIRY
+can i order the book online John,BOOK_PURCHASE
+cancel my booking please Mei,CANCEL
+where is your office located,GENERAL
+"nak tanya, how do i pay my latest invoice",PAYMENT
+i need a mentor for forex Dina,MENTORING_ENQUIRY
+ada program untuk pemula sekarang,PROGRAM_ENQUIRY
+sila ada program untuk pemula Ali,PROGRAM_ENQUIRY
+"nak tanya, make payment for my account Raj esok",PAYMENT
+what is the weather today hari ini,OTHER
+do you offer mentoring sessions Ali,MENTORING_ENQUIRY
+saya nak saya nak buat bayaran sekarang hari ini,PAYMENT
+is there a program for beginners Mei hari ini,PROGRAM_ENQUIRY
+dah bayar invoice tu esok,PAYMENT
+tolong payment already done Ali,PAYMENT
+"nak tanya, saya nak tukar jadual sesi",RESCHEDULE
+tolong saya nak buat bayaran sekarang Siti,PAYMENT
+"hello, i want to pay my bill dan lain lain",PAYMENT
+kindly how do i invest in unit trust Dina,UNIT_TRUST
+"hello, can i move my meeting to another day",RESCHEDULE
+i want to cancel my appointment,CANCEL
+kindly cuti saya cancel semua,CANCEL
+sila cancel the session next week thanks,CANCEL
+please reschedule my appointment Raj,RESCHEDULE
+"excuse me, aadu tor service hampir takde Mei",COMPLAINT
+boleh tak swap slot saya Mei ok,RESCHEDULE
+how do i enrol in the program Dina hari ini,PROGRAM_ENQUIRY
+macam mana nak hubungi anda Dina,GENERAL
+is there a program for beginners Ali hari ini,PROGRAM_ENQUIRY
+please reschedule my appointment Dina,RESCHEDULE
+can you sing a song John,OTHER
+how do i enrol in the program dan lain lain,PROGRAM_ENQUIRY
+saya nak what cat breed is best Raj 🙏,OTHER
+please phonenumber for support?,GENERAL
+aadu tor service hampir takde John please,COMPLAINT
+sila please reschedule my appointment Ali esok,RESCHEDULE
+how much is the book Dina please,BOOK_PURCHASE
+what are your opening hours Mei dan lain lain,GENERAL
+"hi, mentoring program details please Raj",MENTORING_ENQUIRY
+"hey, i just made a payment",PAYMENT
+"hello, i want to cancel my appointment",CANCEL
+sila quote for insurance Mei ok,OTHER
+what programs do you offer Ali,PROGRAM_ENQUIRY
+info am pasal servis Dina,GENERAL
+do you offer mentoring sessions ya,MENTORING_ENQUIRY
+"hello, mentoring program details please",MENTORING_ENQUIRY
+how do i pay my latest invoice Dina,PAYMENT
+i would like a mentor for investing Siti,MENTORING_ENQUIRY
+payment already done,PAYMENT
+make payment for my account Siti ya,PAYMENT
+saya nak united trust portfolio update,UNIT_TRUST
+"hi, i want to make a payment",PAYMENT
+"hi, ada program untuk pemula thanks",PROGRAM_ENQUIRY
+macam mana nak hubungi anda please,GENERAL
+please cancel my subscription Ali hari ini,CANCEL
+please how do i pay my latest invoice Dina 🙏,PAYMENT
+nak tau cuaca hari ni Dina ok,OTHER
+how do i enrol in the program John ok,PROGRAM_ENQUIRY
+kindly where can i purchase the book,BOOK_PURCHASE
+please how much is the book,BOOK_PURCHASE
+"hey, saya dah buat payment",PAYMENT
+please saya nak cancel langganan hari ini,CANCEL
+"hi, i need a mentor for forex Raj",MENTORING_ENQUIRY
+unit amanah unit trust returns esok,UNIT_TRUST
+what is the weather today Dina esok,OTHER
+i want to check my unit trust balance,UNIT_TRUST
+"nak tanya, what is the weather today",OTHER
+please please move my appointment to friday Siti,RESCHEDULE
+"excuse me, dah bayar invoice tu sekarang",PAYMENT
+"nak tanya, nak mentor untuk trading sekarang",MENTORING_ENQUIRY
+can i see the program schedule terima kasih,PROGRAM_ENQUIRY
+reschedule my booking Dina,RESCHEDULE
+"excuse me, nak beli buku saham Siti",BOOK_PURCHASE
+"hey, there is a spider in my room dan lain lain",OTHER
+saya tidak puas hati dengan service Ali,COMPLAINT
+change the date of my session please hari ini,RESCHEDULE
+cancel my booking please Dina ya,CANCEL
+"hi, book order request",BOOK_PURCHASE
+tolong united trust portfolio update,UNIT_TRUST
+"nak tanya, quote for insurance",OTHER
+kindly this billing error is unacceptable Raj sekarang,COMPLAINT
+"excuse me, rasa penat hari ini",OTHER
+what are your opening hours,GENERAL
+"hi, how do i invest in unit trust dan lain lain",UNIT_TRUST
+"hi, how much is a mentoring session",MENTORING_ENQUIRY
+macam mana nak invest unit amanah Raj ya,UNIT_TRUST
+"hello, tell me about your company dan lain lain",GENERAL
+sila boleh tak swap slot saya dan lain lain,RESCHEDULE
+sila i want to cancel my order Dina,CANCEL
+how much is a mentoring session Dina,MENTORING_ENQUIRY
+"hey, saya nak cancel langganan hari ini",CANCEL
+tolong saya nak beli buku itu terima kasih,BOOK_PURCHASE
+batalkan pesanan saya John,CANCEL
+aadu tor service hampir takde dan lain lain,COMPLAINT
+i am unhappy with the service sekarang,COMPLAINT
+"nak tanya, do you offer mentoring sessions ok",MENTORING_ENQUIRY
+"nak tanya, aadu tor service hampir takde 🙏",COMPLAINT
+saya nak tukar appointment esok Mei 🙏,RESCHEDULE
+"nak tanya, how do i pay my latest invoice dan lain lain",PAYMENT
+saya nak tukar jadual sesi John ya,RESCHEDULE
+saya nak saya nak beli buku itu Raj,BOOK_PURCHASE
+"hello, batalkan pesanan saya please",CANCEL
+"hi, cancel the session next week John",CANCEL
+saya nak beli buku itu Dina 🙏,BOOK_PURCHASE
+tolong what time do you open today please,GENERAL
+saya nak please reschedule my appointment Mei 🙏,RESCHEDULE
+tolong phonenumber for support?,GENERAL
+please can you sing a song ya,OTHER
+recommend a good movie esok,OTHER
+"nak tanya, recommend a unit trust fund",UNIT_TRUST
+make payment for my account Siti esok,PAYMENT
+i want to make a payment sekarang,PAYMENT
+saya nak berapa harga buku cikgu,BOOK_PURCHASE
+can i order the book online esok,BOOK_PURCHASE
+"excuse me, apa itu program asas Raj ok",PROGRAM_ENQUIRY
+kindly i want to make a payment,PAYMENT
+boleh tukar tarikh temujanji John terima kasih,RESCHEDULE
+tolong how do i contact support,GENERAL
+what is the weather today 🙏,OTHER
+what is the weather today Dina,OTHER
+there is a spider in my room Ali terima kasih,OTHER
+tell me about your company Ali 🙏,GENERAL
+how much is the book Raj,BOOK_PURCHASE
+saya nak i just made a payment Raj,PAYMENT
+what cat breed is best Mei,OTHER
+kindly aadu tor service hampir takde,COMPLAINT
+how do i pay my latest invoice Siti esok,PAYMENT
+"nak tanya, berapa harga buku cikgu Raj",BOOK_PURCHASE
+sila saya nak cancel langganan Mei terima kasih,CANCEL
+ada mentor tak untuk saham Siti ya,MENTORING_ENQUIRY
+i would like a mentor for investing thanks,MENTORING_ENQUIRY
+"hi, batal sahaja appointment Siti",CANCEL
+please how do i contact support terima kasih,GENERAL
+saya nak tukar appointment esok John,RESCHEDULE
+saya nak how much is a mentoring session Mei,MENTORING_ENQUIRY
+phonenumber for support? thanks,GENERAL
+"hey, make payment for my account",PAYMENT
+"hey, where can i purchase the book dan lain lain",BOOK_PURCHASE
+cuti saya cancel semua Dina,CANCEL
+tolong i am unhappy with the service,COMPLAINT
+i would like a mentor for investing Mei,MENTORING_ENQUIRY
+your staff was rude to me Mei ok,COMPLAINT
+i need a mentor for forex Raj,MENTORING_ENQUIRY
+i need a mentor for forex Ali ya,MENTORING_ENQUIRY
+nak mentor untuk trading ya,MENTORING_ENQUIRY
+"hey, nak mentor untuk trading",MENTORING_ENQUIRY
+"excuse me, i want to pay my bill",PAYMENT
+please i need a mentor for forex Ali,MENTORING_ENQUIRY
+what programs do you offer Mei dan lain lain,PROGRAM_ENQUIRY
+"nak tanya, ada program untuk pemula",PROGRAM_ENQUIRY
+"excuse me, please settle my outstanding balance",PAYMENT
+"excuse me, i want to pay my bill 🙏",PAYMENT
+mentoring program details please thanks,MENTORING_ENQUIRY
+"excuse me, saya dah buat payment Dina terima kasih",PAYMENT
+"excuse me, united trust portfolio update",UNIT_TRUST
+do you offer mentoring sessions Mei please,MENTORING_ENQUIRY
+tolong this billing error is unacceptable,COMPLAINT
+"nak tanya, do you offer mentoring sessions Raj hari ini",MENTORING_ENQUIRY
+is there a program for beginners Mei ya,PROGRAM_ENQUIRY
+nak tau cuaca hari ni terima kasih,OTHER
+kindly tolong cancel booking saya Raj please,CANCEL
+mentoring program details please John,MENTORING_ENQUIRY
+how much is a mentoring session John,MENTORING_ENQUIRY
+can i move my meeting to another day Mei,RESCHEDULE
+saya nak tukar jadual sesi Raj thanks,RESCHEDULE
+tolong tell me about your company esok,GENERAL
+ada program untuk pemula esok,PROGRAM_ENQUIRY
+can i order the book online,BOOK_PURCHASE
+please i want to cancel my appointment thanks,CANCEL
+"hello, saya nak tukar jadual sesi Siti sekarang",RESCHEDULE
+"hello, can i order the book online Siti terima kasih",BOOK_PURCHASE
+kindly there is a spider in my room John,OTHER
+recommend a unit trust fund Ali hari ini,UNIT_TRUST
+kindly what is the weather today Mei dan lain lain,OTHER
+sila saya nak cancel langganan,CANCEL
+"nak tanya, recommend a good movie",OTHER
+what time do you open today Mei,GENERAL
+"hey, unit amanah unit trust returns",UNIT_TRUST
+united trust portfolio update Raj ya,UNIT_TRUST
+"hello, i want to complain about the delay esok",COMPLAINT
+"hi, what time do you open today",GENERAL
+please can i order the book online,BOOK_PURCHASE
+cancel the session next week John sekarang,CANCEL
+saya nak what cat breed is best Ali,OTHER
+please i want to check my unit trust balance Ali,UNIT_TRUST
+i want to cancel my order,CANCEL
+boleh saya settle baki tertunggak ya,PAYMENT
+tolong bayar bil saya ok,PAYMENT
+cancel the session next week Dina,CANCEL
+"hello, i want to cancel my appointment Dina",CANCEL
+"excuse me, recommend a good movie",OTHER
+i want to cancel my order terima kasih,CANCEL
+tolong i just made a payment hari ini,PAYMENT
+berapa yuran sesi mentoring Raj,MENTORING_ENQUIRY
+"hello, i need a mentor for forex esok",MENTORING_ENQUIRY
+"excuse me, cuti saya cancel semua",CANCEL
+rasa penat hari ini esok,OTHER
+saya nak aadu tor service hampir takde Siti,COMPLAINT
+kindly saya dah buat payment,PAYMENT
+saya nak macam mana nak invest unit amanah,UNIT_TRUST
+"nak tanya, united trust portfolio update Siti ya",UNIT_TRUST
+i need a mentor for forex John,MENTORING_ENQUIRY
+"hello, is there a program for beginners Ali",PROGRAM_ENQUIRY
+berapa harga buku cikgu,BOOK_PURCHASE
+nak beli buku saham ok,BOOK_PURCHASE
+can i move my meeting to another day,RESCHEDULE
+i want to buy your book Siti,BOOK_PURCHASE
+"hey, tolong cancel booking saya",CANCEL
+saya nak buat bayaran sekarang John sekarang,PAYMENT
+sila info am pasal servis ok,GENERAL
+"nak tanya, info am pasal servis Siti",GENERAL
+"nak tanya, united trust portfolio update",UNIT_TRUST
+"hi, please reschedule my appointment Mei",RESCHEDULE
+saya nak bila office anda buka Siti,GENERAL
+kindly cancel the session next week Siti please,CANCEL
+"hey, please move my appointment to friday",RESCHEDULE
+i want to make a payment Raj terima kasih,PAYMENT
+sila this billing error is unacceptable,COMPLAINT
+please move my appointment to friday thanks,RESCHEDULE
+how do i contact support Raj hari ini,GENERAL
+"hello, i want to check my unit trust balance Dina dan lain lain",UNIT_TRUST
+kindly i need a mentor for forex,MENTORING_ENQUIRY
+mentoring program details please sekarang,MENTORING_ENQUIRY
+can i see the program schedule Dina thanks,PROGRAM_ENQUIRY
+kindly info am pasal servis Raj,GENERAL
+what is the mentoring fee sekarang,MENTORING_ENQUIRY
+macam mana nak hubungi anda dan lain lain,GENERAL
+"hi, ada program untuk pemula sekarang",PROGRAM_ENQUIRY
+how much is the book Ali thanks,BOOK_PURCHASE
+tolong berapa yuran sesi mentoring John esok,MENTORING_ENQUIRY
+"hey, info am pasal servis dan lain lain",GENERAL
+what are unit trust returns sekarang,UNIT_TRUST
+please move my appointment to friday Siti hari ini,RESCHEDULE
+"hi, i want to make a payment ya",PAYMENT
+"hey, program apa yang awak ada Raj",PROGRAM_ENQUIRY
+this billing error is unacceptable,COMPLAINT
+can i move my meeting to another day esok,RESCHEDULE
+nak tau cuaca hari ni please,OTHER
+i just made a payment ya,PAYMENT
+saya nak buat bayaran sekarang Raj 🙏,PAYMENT
+batalkan pesanan saya Dina thanks,CANCEL
+saya nak can you sing a song Mei,OTHER
+"hello, i want to check my unit trust balance",UNIT_TRUST
+"hi, how much is the book",BOOK_PURCHASE
+nak tau cuaca hari ni,OTHER
+how much is a mentoring session Raj sekarang,MENTORING_ENQUIRY
+layanan buruk yang saya terima,COMPLAINT
+your staff was rude to me Siti hari ini,COMPLAINT
+"hey, can i move my meeting to another day sekarang",RESCHEDULE
+how much is a mentoring session John thanks,MENTORING_ENQUIRY
+"hi, tell me a joke Siti ya",OTHER
+sila program apa yang awak ada thanks,PROGRAM_ENQUIRY
+saya nak tukar jadual sesi thanks,RESCHEDULE
+mentoring program details please Siti,MENTORING_ENQUIRY
+buy the trading book hari ini,BOOK_PURCHASE
+"hello, saya tidak puas hati dengan service Mei",COMPLAINT
+saya nak tengok unit trust saya 🙏,UNIT_TRUST
+do you offer mentoring sessions dan lain lain,MENTORING_ENQUIRY
+tolong tell me a joke,OTHER
+macam mana nak invest unit amanah Dina esok,UNIT_TRUST
+boleh tak swap slot saya Ali thanks,RESCHEDULE
+"nak tanya, can you sing a song hari ini",OTHER
+"nak tanya, phonenumber for support? thanks",GENERAL
+saya nak united trust portfolio update Raj dan lain lain,UNIT_TRUST
+can you sing a song Dina thanks,OTHER
+please i need a mentor for forex 🙏,MENTORING_ENQUIRY
+can i order the book online Siti,BOOK_PURCHASE
+how do i invest in unit trust dan lain lain,UNIT_TRUST
+"excuse me, tell me about your company please",GENERAL
+how do i invest in unit trust Ali esok,UNIT_TRUST
+"hi, batal sahaja appointment thanks",CANCEL
+kindly how much is a mentoring session thanks,MENTORING_ENQUIRY
+please reschedule my appointment esok,RESCHEDULE
+please please cancel my subscription Mei,CANCEL
+"excuse me, batal sahaja appointment",CANCEL
+"hi, the app keeps crashing and i am upset",COMPLAINT
+"hey, aadu tor service hampir takde",COMPLAINT
+please how do i invest in unit trust hari ini,UNIT_TRUST
+"hi, recommend a unit trust fund sekarang",UNIT_TRUST
+how do i invest in unit trust 🙏,UNIT_TRUST
+saya nak program apa yang awak ada dan lain lain,PROGRAM_ENQUIRY
+where is your office located Ali,GENERAL
+"hello, boleh tak swap slot saya",RESCHEDULE
+"excuse me, mentoring program details please",MENTORING_ENQUIRY
+the app keeps crashing and i am upset Siti hari ini,COMPLAINT
+there is a spider in my room hari ini,OTHER
+"hi, change the date of my session please sekarang",RESCHEDULE
+kindly do you offer mentoring sessions John,MENTORING_ENQUIRY
+"hey, how do i invest in unit trust Ali",UNIT_TRUST
+"excuse me, i want to cancel my order ya",CANCEL
+kindly how do i enrol in the program Mei,PROGRAM_ENQUIRY
+"hey, mentoring program details please",MENTORING_ENQUIRY
+saya nak do you offer mentoring sessions Dina,MENTORING_ENQUIRY
+please reschedule my appointment ya,RESCHEDULE
+i want to check my unit trust balance hari ini,UNIT_TRUST
+kindly saya nak cancel langganan Siti,CANCEL
+saya nak tukar jadual sesi Dina,RESCHEDULE
+kindly what time do you open today Mei,GENERAL
+"hello, i would like a mentor for investing Dina",MENTORING_ENQUIRY
+"hi, can you sing a song",OTHER
+payment already done ok,PAYMENT
+"hi, payment already done Siti esok",PAYMENT
+nak mentor untuk trading Dina,MENTORING_ENQUIRY
+"excuse me, i want to buy your book Dina",BOOK_PURCHASE
+"hey, berapa yuran sesi mentoring terima kasih",MENTORING_ENQUIRY
+quote for insurance ya,OTHER
+program apa yang awak ada sekarang,PROGRAM_ENQUIRY
+batal sahaja appointment Mei dan lain lain,CANCEL
+boleh tak swap slot saya ya,RESCHEDULE
+please can i order the book online John,BOOK_PURCHASE
+is there a program for beginners dan lain lain,PROGRAM_ENQUIRY
+"hey, saya nak beli buku itu John",BOOK_PURCHASE
+boleh tukar tarikh temujanji Dina,RESCHEDULE
+kindly batalkan pesanan saya please,CANCEL
+sila nak tau cuaca hari ni thanks,OTHER
+please move my appointment to friday John,RESCHEDULE
+saya nak tengok unit trust saya please,UNIT_TRUST
+i want to complain about the delay terima kasih,COMPLAINT
+phonenumber for support? ok,GENERAL
+your staff was rude to me ya,COMPLAINT
+"nak tanya, aadu tor service hampir takde hari ini",COMPLAINT
+please layanan buruk yang saya terima Dina thanks,COMPLAINT
+please what cat breed is best esok,OTHER
+i want to cancel my appointment John,CANCEL
+"hello, can i order the book online thanks",BOOK_PURCHASE
+"hello, what is the weather today",OTHER
+how do i contact support Mei,GENERAL
+saya nak macam mana nak invest unit amanah hari ini,UNIT_TRUST
+recommend a good movie please,OTHER
+ada program untuk pemula,PROGRAM_ENQUIRY
+kindly what is the mentoring fee,MENTORING_ENQUIRY
+kindly recommend a unit trust fund,UNIT_TRUST
+"excuse me, how do i enrol in the program Ali",PROGRAM_ENQUIRY
+ada program untuk pemula Raj,PROGRAM_ENQUIRY
+program apa yang awak ada,PROGRAM_ENQUIRY
+"hello, saya dah buat payment esok",PAYMENT
+saya nak do you offer mentoring sessions terima kasih,MENTORING_ENQUIRY
+can i see the program schedule sekarang,PROGRAM_ENQUIRY
+tolong make payment for my account,PAYMENT
+please buy the trading book,BOOK_PURCHASE
+how do i pay my latest invoice John please,PAYMENT
+book order request Ali,BOOK_PURCHASE
+"hi, mentoring program details please",MENTORING_ENQUIRY
+reschedule my booking Raj,RESCHEDULE
+"nak tanya, i want to pay my bill ya",PAYMENT
+"hi, i want to cancel my appointment",CANCEL
+how do i pay my latest invoice terima kasih,PAYMENT
+"excuse me, how do i contact support Raj",GENERAL
+how much is the book ya,BOOK_PURCHASE
+what time do you open today Ali,GENERAL
+can you sing a song Siti,OTHER
+nak tau cuaca hari ni Dina,OTHER
+layanan buruk yang saya terima hari ini,COMPLAINT
+"excuse me, i need a mentor for forex",MENTORING_ENQUIRY
+batalkan pesanan saya Siti,CANCEL
+can i order the book online ok,BOOK_PURCHASE
+please move my appointment to friday Raj thanks,RESCHEDULE
+i need a mentor for forex Mei 🙏,MENTORING_ENQUIRY
+kindly cancel my booking please terima kasih,CANCEL
+saya dah buat payment Mei ya,PAYMENT
+apa itu program asas Raj,PROGRAM_ENQUIRY
+"nak tanya, tolong bayar bil saya please",PAYMENT
+how much is a mentoring session esok,MENTORING_ENQUIRY
+sila there is a spider in my room Raj esok,OTHER
+change the date of my session please Raj,RESCHEDULE
+how much is the book,BOOK_PURCHASE
+layanan buruk yang saya terima John terima kasih,COMPLAINT
+your staff was rude to me sekarang,COMPLAINT
+this billing error is unacceptable terima kasih,COMPLAINT
+boleh tak swap slot saya John,RESCHEDULE
+how do i contact support,GENERAL
+batalkan pesanan saya Siti hari ini,CANCEL
+"hey, what are your opening hours",GENERAL
+boleh saya settle baki tertunggak Raj,PAYMENT
+united trust portfolio update Dina,UNIT_TRUST
+"excuse me, quote for insurance",OTHER
+saya nak layanan buruk yang saya terima Raj,COMPLAINT
+please nak tau cuaca hari ni 🙏,OTHER
+"excuse me, recommend a unit trust fund ok",UNIT_TRUST
+"nak tanya, nak tau cuaca hari ni please",OTHER
+i just made a payment Mei,PAYMENT
+"hello, saya nak tukar appointment esok thanks",RESCHEDULE
+buy the trading book Ali,BOOK_PURCHASE
+sila i want to buy your book ok,BOOK_PURCHASE
+tolong bayar bil saya Ali,PAYMENT
+"excuse me, i am unhappy with the service sekarang",COMPLAINT
+recommend a unit trust fund Siti,UNIT_TRUST
+aadu tor service hampir takde John hari ini,COMPLAINT
+phonenumber for support? ya,GENERAL
+info am pasal servis Mei thanks,GENERAL
+"nak tanya, cuti saya cancel semua dan lain lain",CANCEL
+"hey, boleh saya settle baki tertunggak Dina",PAYMENT
+please batal sahaja appointment,CANCEL
+"nak tanya, nak beli buku saham",BOOK_PURCHASE
+"excuse me, macam mana nak hubungi anda",GENERAL
+tolong nak beli buku saham Dina,BOOK_PURCHASE
+sila rasa penat hari ini Mei hari ini,OTHER
+kindly program apa yang awak ada sekarang,PROGRAM_ENQUIRY
+do you offer mentoring sessions Dina hari ini,MENTORING_ENQUIRY
+recommend a good movie Dina,OTHER
+"nak tanya, tolong cancel booking saya Siti",CANCEL
+phonenumber for support? Raj ok,GENERAL
+"hey, layanan buruk yang saya terima Mei thanks",COMPLAINT
+sila this billing error is unacceptable Mei,COMPLAINT
+sila i want to check my unit trust balance John please,UNIT_TRUST
+sila nak beli buku saham hari ini,BOOK_PURCHASE
+"hey, macam mana nak invest unit amanah Raj",UNIT_TRUST
+"hey, ada mentor tak untuk saham",MENTORING_ENQUIRY
+united trust portfolio update Mei,UNIT_TRUST
+saya nak cancel langganan Dina,CANCEL
+sila hantar program info 🙏,PROGRAM_ENQUIRY
+please settle my outstanding balance Mei,PAYMENT
+the app keeps crashing and i am upset,COMPLAINT
+saya nak ada program untuk pemula ya,PROGRAM_ENQUIRY
+kindly what is the weather today ya,OTHER
+how much is the book ok,BOOK_PURCHASE
+saya tidak puas hati dengan service esok,COMPLAINT
+"excuse me, apa itu program asas Ali dan lain lain",PROGRAM_ENQUIRY
+sila reschedule my booking ok,RESCHEDULE
+program apa yang awak ada ya,PROGRAM_ENQUIRY
+macam mana nak hubungi anda Mei esok,GENERAL
+sila please reschedule my appointment 🙏,RESCHEDULE
+i want to pay my bill Raj 🙏,PAYMENT
+saya nak tukar appointment esok dan lain lain,RESCHEDULE
+ada mentor tak untuk saham Ali,MENTORING_ENQUIRY
+nak tau cuaca hari ni Ali hari ini,OTHER
+aadu tor service hampir takde Siti sekarang,COMPLAINT
+i want to make a payment John thanks,PAYMENT
+please settle my outstanding balance Siti ok,PAYMENT
+how do i enrol in the program Raj,PROGRAM_ENQUIRY
+tolong saya nak buat bayaran sekarang,PAYMENT
+kindly please reschedule my appointment,RESCHEDULE
+"nak tanya, macam mana nak invest unit amanah Raj dan lain lain",UNIT_TRUST
+rasa penat hari ini 🙏,OTHER
+"hello, do you offer mentoring sessions",MENTORING_ENQUIRY
+is there a program for beginners please,PROGRAM_ENQUIRY
+"hello, i want to check my unit trust balance ok",UNIT_TRUST
+how do i invest in unit trust John ok,UNIT_TRUST
